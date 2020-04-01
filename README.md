@@ -10,6 +10,12 @@ Or iterate over the all the protein surface residues with SASA > 10 A
 ## Step 2: Open pockets at target site (Optional)
 Rosetta based application that explores low-energy fluctuations of the protein surface to reveal cryptic pockets.
 
+Sample Command: relax.linuxgccrelease  s input_pdb -relax:fast -pocket_max_spacing 12
+ pocket_zero_derivatives -pocket_psp false -pocket_sps -pocket_num_angles 2
+-ex1  ex1aro -ex2 -score:patch pocket.wts.patch -nstruct 1
+-cst_fa_file constraints
+
+
 Dependency: Rosetta Software Suite
 
 If there is a good pocket at the target site then skip to Step 3

@@ -39,10 +39,12 @@ Depedencies: RADI and Naccess
 Script: FormSets.pl 
 
 This script forms the test set. 
+
 Usage: perl FormSets.pl > TB254Set
 
 ## Step 6: Applying GBM model
 Model Name: model_FINAL.rds
 
 Usage: Rscript GBMrunFINAL.R
+
 Predictions adds the predicted activity as the last column of the Set.

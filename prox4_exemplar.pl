@@ -7,20 +7,35 @@ use strict;
    
     foreach(@entry){
         get_lig_pock($_);
+        obtain_features($_,"TB254");
     }
 }
-
+sub obtain_features{
+    my ($complex, $target) = @_;
+    my @title = split(/\_/,$_);
+    
+    my $pdb = substr $complex, 0,-12;
+    
+    my $f = $pdb."_prox4_pock.pdb";
+    my $apdbfile = "../apo/$pdb.pdb";
+    
+    if ( -e $f ) {
+    my $cmd = "perl ../../../features.pl $pdb $target";
+    #print $cmd, "\n";
+    system($cmd);
+    }
+    else{}
+}
 sub get_lig_pock{
     
     my $het = "TMP";
     my $chain  = "A";
     my ($f) = @_;
-    my @title = split(/\_/,$f);
 
-    my $pdb = substr $f, 0,4;
+    my $pdb = substr $f, 0,-12;
     
-    my $out = $pdb."_".$title[5]."_".$title[9]."_prox4_pock.pdb";
-    my $ligout = $pdb."_".$title[5]."_".$title[9]."_ligand.pdb";
+    my $out = $pdb."_prox4_pock.pdb";
+    my $ligout = $pdb."_ligand.pdb";
 
     my @filepocket_lines;
     my @finalpocket;

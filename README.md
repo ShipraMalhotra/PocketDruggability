@@ -1,7 +1,5 @@
 # Maximum Achievable Potency of a Protein Surface
 
-### Pre-processing Step ###
-
 ## Step 1: Determine Target Residue
 For example: DNA binding site on p53. Select 1 residue (non-buried) on protein surface as target residue.
 

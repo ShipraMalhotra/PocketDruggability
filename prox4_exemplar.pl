@@ -1,13 +1,13 @@
 #!/usr/bin/perl
 use strict;
 {
-    chdir "data/TB254/complexes/"; # Target Protein Chain: B and Target residue number: 254
+    chdir "data/TA99/complexes/"; # Target Protein Chain: A and Target residue number: 99
     my (@entry) = `ls *Complex.pdb`;
     chomp @entry;
    
     foreach(@entry){
         get_lig_pock($_);
-        obtain_features($_,"TB254");
+        obtain_features($_,"TA99");
     }
 }
 sub obtain_features{

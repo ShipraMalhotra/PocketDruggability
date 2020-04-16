@@ -53,7 +53,7 @@ my ($p_aro_res, $p_ali_res, $p_negative_res, $p_positive_res) = p_res(\@seq, $nu
 my ($p_Ccoo, $p_N_atom, $p_Ooh) = milletti($file, $num_res);
 
 #Step 5: Naccess
-my $asa_h = naccess("~/Druggability/PocketDruggability/data/TB254/apo/$pdbfile", $file);
+my $asa_h = naccess("~/Druggability/PocketDruggability/data/$target/apo/$pdbfile", $file);
 
 my %Properties = (
     "VOLUME_HULL" => $vol_hull,

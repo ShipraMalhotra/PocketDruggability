@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 use strict;
 {
-    my $target = "TB254";
+    my $target = "TA99";
     chdir "data/$target/complexes/";
     my (@entry) = `ls *Complex.pdb`;
     chomp @entry;

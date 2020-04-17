@@ -115,3 +115,11 @@ Rscript GBMrunFINAL.R
 **Output file**: *TA99Predictions.txt*
 
 **Column15** : PredictedActivity (Predicted attainable pactivity for a pocket)
+
+## References
+1. Borrel A,  Regad L,  Xhaard H,  Petitjean M, Camproux A-C, PockDrug: A Model for Predicting Pocket Druggability That Overcomes Pocket Estimation Uncertainties. *Journal of Chemical Information and Modeling* **2015**, 55 (4), 882-895.
+2. Burgoyne NJ, Jackson RM, Predicting protein interaction sites: binding hot-spots in protein–protein and protein–ligand interfaces. *Bioinformatics* **2006**, 22 (11), 1335-1342.
+3. Petitjean M, Applications of the radius-diameter diagram to the classification of topological and geometrical shapes of chemical compounds. *Journal of chemical information and computer sciences* **1992**, 32 (4), 331-337.
+4. Kyte J, Doolittle RF, A simple method for displaying the hydropathic character of a protein. *Journal of molecular biology* **1982**, 157 (1), 105-132.
+5. Milletti F. Vulpetti A, Predicting polypharmacology by binding site similarity: from kinases to the protein universe. *Journal of chemical information and modeling* **2010**, 50 (8), 1418-1431.
+

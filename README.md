@@ -1,11 +1,11 @@
 # Maximum Achievable Potency of a Protein Surface
 
 ## Step 1: Determine Target Residue
-For example: Protein *Mdm2*. Select 1 residue (non-buried) on protein surface as target residue.
+For example: Protein *Mdm2*. Select 1 residue (non-buried) on the protein surface as target residue.
 
 Or iterate over the all the protein surface residues with SASA > 10 Å
 
-## Step 2: Open pockets at target site (Optional)
+## Step 2: Open pockets at the target site (Optional)
 Rosetta based application that explores low-energy fluctuations of the protein surface to reveal cryptic pockets.
 
 **Sample Command**: relax.linuxgccrelease -s input_pdb -relax:fast -pocket_max_spacing 12 -pocket_zero_derivatives -pocket_psp false -pocket_sps -pocket_num_angles 2 -ex1  ex1aro -ex2 -score:patch pocket.wts.patch -nstruct 1 -cst_fa_file constraints
@@ -31,7 +31,7 @@ If there is a good pocket at the target site then skip to Step 3
 
 **"Pocket Features"**: 13 features of protein pocket geometric and  physiochemical properties.
 
-**Depedencies**: RADI and Naccess
+**Dependencies**: RADI and Naccess
 
 ## ------------------- Pocket Features --------------------------
 | Property Name  | Description |
@@ -63,12 +63,12 @@ This script forms the test set.
 
 **Usage**: Rscript GBMrunFINAL.R
 
-Predictions adds the predicted activity as the last column of the Set.
+Predictions are added in the last column of the Set.
 
-# Download Pre-requistites 
+# Download Prerequisites 
 
 1. Download RADI
-	- Downlaod binary from http://petitjeanmichel.free.fr/itoweb.petitjean.freeware.html#RADI
+	- Download binary from http://petitjeanmichel.free.fr/itoweb.petitjean.freeware.html#RADI
 	- Change path for binary in line 32 script features.pl
 2. Download Naccess
 	- Download Naccess app from http://wolf.bms.umist.ac.uk/naccess/
@@ -104,7 +104,7 @@ cd apo/
 
 cd ~/PocketDruggability/
 
-###### \#\# Previous steps has already been done for this particular example. Start Here. \#\#
+###### \#\# Previous steps have already been done for this particular example. Start Here. \#\#
 
 perl prox4_exemplar.pl
 

@@ -33,7 +33,7 @@ Script: prox4_exemplar.pl && features.pl
 
 Depedencies: RADI and Naccess
 
-###----------- Pocket Features-------###
+## ------------------- Pocket Features --------------------------
 | Property Name  | Description |
 | ------------- | ------------- |
 | VOLUME_HULL  | volume of convex hull computed using RADI software  |
@@ -55,7 +55,7 @@ Script: FormSets.pl
 
 This script forms the test set. 
 
-Usage: perl FormSets.pl > TA99Set
+Usage: perl FormSets.pl > DataSet
 
 
 ## Step 6: Applying GBM model
@@ -64,3 +64,6 @@ Model Name: model_FINAL.rds
 Usage: Rscript GBMrunFINAL.R
 
 Predictions adds the predicted activity as the last column of the Set.
+
+# Walk-Through: Example of Mdm2
+

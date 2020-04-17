@@ -29,7 +29,7 @@ my ($final_value_r, $finalvalue) = hydrophobicity_kyte(\@hydro);
 print RPT "\n";
 
 #Step 2: Get values from RADI software
-my $RADI_path = "/Users/shipramalhotra/bin.RADI.4.0.1.macosx"; 
+my $RADI_path = "~/bin.RADI.4.0.1.macosx/";
 my $in = "Input_$pockname.txt";
 my $out = "Output_$pockname.txt";
 
@@ -53,7 +53,7 @@ my ($p_aro_res, $p_ali_res, $p_negative_res, $p_positive_res) = p_res(\@seq, $nu
 my ($p_Ccoo, $p_N_atom, $p_Ooh) = milletti($file, $num_res);
 
 #Step 5: Naccess
-my $asa_h = naccess("~/Druggability/PocketDruggability/data/$target/apo/$pdbfile", $file);
+my $asa_h = naccess("~/PocketDruggability/data/$target/apo/$pdbfile", $file);
 
 my %Properties = (
     "VOLUME_HULL" => $vol_hull,
@@ -83,7 +83,7 @@ close RPT;
 
 sub naccess{
     my ($f,$pock) = @_;
-    my $cmd = "/Users/shipramalhotra/Naccess/naccess -a $f";
+    my $cmd = "~/Naccess/naccess -a $f";
     print `pwd`;
     print $cmd, "\n";
     system($cmd);

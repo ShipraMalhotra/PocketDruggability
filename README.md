@@ -65,5 +65,40 @@ Usage: Rscript GBMrunFINAL.R
 
 Predictions adds the predicted activity as the last column of the Set.
 
-# Walk-Through: Example of Mdm2
+# Download Pre-requistites 
 
+1. Download RADI
+	- Downlaod binary from http://petitjeanmichel.free.fr/itoweb.petitjean.freeware.html#RADI
+	- Change path for binary in line 32 script features.pl
+2. Download Naccess
+	- Download Naccess app from http://wolf.bms.umist.ac.uk/naccess/
+	- Change path for the app in line 86 script features.pl
+
+# Walk-Through: Example of Mdm2
+Protein: Mdm2
+Target Site: Chain A Residue 99
+
+### Skip these steps for this particular example ###
+
+mkdir ~/PocketDruggability/data/TA99/
+cd ~/PocketDruggability/data/TA99/
+
+mkdir complexes/
+cd complexes/
+### Place Protein-Exemplar Complexes here. Filename: "*_Complex.pdb"
+cd ../
+
+mkdir apo/
+cd apo/
+
+### Place Protein Apo Structure files here. Filename: "*.pdb"
+
+cd ~/PocketDruggability/
+
+### Previous steps has already been done for this particular example. Start Here ###
+perl prox4_exemplar.pl
+perl FormSets.pl > TA99Set
+Rscript GBMrunFINAL.R
+
+Output file: TA99Predictions
+Column15 : PredictedActivity (Predicted attainable pactivity for a pocket)

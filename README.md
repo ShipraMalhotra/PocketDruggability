@@ -1,37 +1,37 @@
 # Maximum Achievable Potency of a Protein Surface
 
 ## Step 1: Determine Target Residue
-For example: DNA binding site on mdm2. Select 1 residue (non-buried) on protein surface as target residue.
+For example: Protein *Mdm2*. Select 1 residue (non-buried) on protein surface as target residue.
 
 Or iterate over the all the protein surface residues with SASA > 10 Å
 
 ## Step 2: Open pockets at target site (Optional)
 Rosetta based application that explores low-energy fluctuations of the protein surface to reveal cryptic pockets.
 
-Sample Command: relax.linuxgccrelease -s input_pdb -relax:fast -pocket_max_spacing 12 -pocket_zero_derivatives -pocket_psp false -pocket_sps -pocket_num_angles 2 -ex1  ex1aro -ex2 -score:patch pocket.wts.patch -nstruct 1 -cst_fa_file constraints
+**Sample Command**: relax.linuxgccrelease -s input_pdb -relax:fast -pocket_max_spacing 12 -pocket_zero_derivatives -pocket_psp false -pocket_sps -pocket_num_angles 2 -ex1  ex1aro -ex2 -score:patch pocket.wts.patch -nstruct 1 -cst_fa_file constraints
 
-Dependency: Rosetta Software Suite
+**Dependency**: Rosetta Software Suite
 
 If there is a good pocket at the target site then skip to Step 3
 
 ## Step 3: Build Exemplars
-“Exemplar”: a perfect, but nonphysical, pseudoligand that would optimally match the shape and chemical features of the pocket.
+**“Exemplar”**: a perfect, but nonphysical, pseudoligand that would optimally match the shape and chemical features of the pocket.
 
-Dependency: Rosetta Software Suite
+**Dependency**: Rosetta Software Suite
 
-Sample Command: make_exemplar.linuxgccrelease -database ~/Rosetta/main/database -in:file:s input.pdb -central_relax_pdb_num 99:A -pocket_grid_size 12 -pocket_static_grid -pocket_filter_by_exemplar
+**Sample Command**: make_exemplar.linuxgccrelease -database ~/Rosetta/main/database -in:file:s input.pdb -central_relax_pdb_num 99:A -pocket_grid_size 12 -pocket_static_grid -pocket_filter_by_exemplar
 
 ## Step 4.1: Obtain Pocket
-Script: prox4_exemplar.pl
+**Script**: *prox4_exemplar.pl*
 
-"Pocket": protein surface in 4Å proximity to the exemplar
+**"Pocket"**: protein surface in 4Å proximity to the exemplar
 
 ## Step 4.2: Calculate Pocket Features
-Script: prox4_exemplar.pl && features.pl
+**Script**: *prox4_exemplar.pl* && *features.pl*
 
-"Pocket Features": 13 features of protein pocket geometric and  physiochemical properties.
+**"Pocket Features"**: 13 features of protein pocket geometric and  physiochemical properties.
 
-Depedencies: RADI and Naccess
+**Depedencies**: RADI and Naccess
 
 ## ------------------- Pocket Features --------------------------
 | Property Name  | Description |
@@ -51,17 +51,17 @@ Depedencies: RADI and Naccess
 | p_Ccoo_atom  | frequency of Ccoo atoms in pocket  |
 
 ## Step 5: Form Set
-Script: FormSets.pl 
+**Script**: *FormSets.pl* 
 
 This script forms the test set. 
 
-Usage: perl FormSets.pl > DataSet
+**Usage**: perl FormSets.pl > DataSet
 
 
 ## Step 6: Applying GBM model
-Model Name: model_FINAL.rds
+**Model Name**: *model_FINAL.rds*
 
-Usage: Rscript GBMrunFINAL.R
+**Usage**: Rscript GBMrunFINAL.R
 
 Predictions adds the predicted activity as the last column of the Set.
 
@@ -75,10 +75,11 @@ Predictions adds the predicted activity as the last column of the Set.
 	- Change path for the app in line 86 script features.pl
 
 # Walk-Through: Example of Mdm2
-Protein: Mdm2
-Target Site: Chain A Residue 99
+**Protein**: *Mdm2*
 
-## \#\# Skip these steps for this particular example \#\#
+**Target Site**: Chain *A* Residue *99*
+
+###### \#\# Skip these steps for this particular example \#\#
 
 mkdir ~/PocketDruggability/data/TA99/
 
@@ -103,7 +104,7 @@ cd apo/
 
 cd ~/PocketDruggability/
 
-## \#\# Previous steps has already been done for this particular example. Start Here. \#\#
+###### \#\# Previous steps has already been done for this particular example. Start Here. \#\#
 
 perl prox4_exemplar.pl
 
@@ -111,6 +112,6 @@ perl FormSets.pl > TA99Set
 
 Rscript GBMrunFINAL.R
 
-Output file: TA99Predictions
+**Output file**: *TA99Predictions.txt*
 
-Column15 : PredictedActivity (Predicted attainable pactivity for a pocket)
+**Column15** : PredictedActivity (Predicted attainable pactivity for a pocket)

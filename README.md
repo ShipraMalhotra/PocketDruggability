@@ -78,7 +78,7 @@ Predictions adds the predicted activity as the last column of the Set.
 Protein: Mdm2
 Target Site: Chain A Residue 99
 
-\#\#\# # Skip these steps for this particular example # \#\#\#
+#\#\# Skip these steps for this particular example \#\#
 
 mkdir ~/PocketDruggability/data/TA99/
 cd ~/PocketDruggability/data/TA99/
@@ -95,7 +95,7 @@ cd apo/
 
 cd ~/PocketDruggability/
 
-\#\#\# Previous steps has already been done for this particular example. Start Here. \#\#\#
+#\#\# Previous steps has already been done for this particular example. Start Here. \#\#
 perl prox4_exemplar.pl
 perl FormSets.pl > TA99Set
 Rscript GBMrunFINAL.R
